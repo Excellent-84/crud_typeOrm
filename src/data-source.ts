@@ -1,9 +1,9 @@
-import "reflect-metadata"
-import { DataSource } from "typeorm"
-import { User } from "./entity/User"
-import { config } from "dotenv"
+import "reflect-metadata";
+import { DataSource } from "typeorm";
+import { User } from "./entity/User";
+import { config } from "dotenv";
 
-config()
+config();
 
 export const AppDataSource = new DataSource({
     type: "postgres",
@@ -18,3 +18,11 @@ export const AppDataSource = new DataSource({
     migrations: [],
     subscribers: [],
 })
+
+AppDataSource.initialize()
+    .then(() => {
+        console.log("Data Source has been initialized!")
+    })
+    .catch((err) => {
+        console.error("Error during Data Source initialization", err)
+    })
