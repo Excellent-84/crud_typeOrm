@@ -5,9 +5,9 @@ export class User {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ type: 'varchar', length: 100 })
+  @Column('varchar', { length: 100 })
   name!: string;
 
-  @Column({ type: 'int' })
+  @Column('int')
   age!: number;
 }
