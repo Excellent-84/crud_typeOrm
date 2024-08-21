@@ -9,8 +9,8 @@ export default {
       const newUser = userRepository.create(user);
       await userRepository.save(newUser);
       return newUser;
-    } catch (err) {
-      throw err;
+    } catch (error) {
+      throw error;
     }
   },
 
